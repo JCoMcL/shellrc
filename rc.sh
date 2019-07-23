@@ -1,8 +1,4 @@
-input="$HOME/.shrc/alias"
-while IFS= read -r line
-do
-	alias  $(echo $line | awk '{print $1}')="$(echo $line | awk '{$1=""; print $0}')"
-done < "$input"
+eval $(cat $HOME/.shrc/alias | awk -F '\t' '{print "alias "$1"=""\047"$2"\047;"}')
 
 export PATH=$(cat ~/.shrc/path | tr "\n" ":")
 
