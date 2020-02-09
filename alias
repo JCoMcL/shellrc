@@ -1,12 +1,9 @@
 h	history
 o	xdg-open
 t	echo test
-hoover	make clean && git reset --hard origin/master && rm -f config.h
-emoji	dmenu < ~/bin/.emoji | cut -f 1
-icons	dmenu < ~/bin/.icons | cut -f 1
+hoover	make clean && git reset --hard origin master && rm -f config.h
+emoji	cat ~/.scripts/.emoji | dmenu | awk '{print $1}'
 grep	grep --color=auto
 diff	diff --color=auto
-e	$EDITOR
+vi	nvim
 commit	git add . && git commit -m
-copy	xclip -selection clipboard <
-paste	xclip -selection clipboard -o >
