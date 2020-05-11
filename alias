@@ -1,12 +1,16 @@
 h	history
 o	xdg-open
-t	echo test
 hoover	make clean && git reset --hard origin/master && rm -f config.h
-emoji	dmenu < ~/bin/.emoji | cut -f 1
-icons	dmenu < ~/bin/.icons | cut -f 1
+emoji	dmenu < ~/bin/.emoji | cut -f 1 | xclip -selection clipboard
+icons	dmenu < ~/bin/.icons | cut -f 1 | xclip -selection clipboard
 grep	grep --color=auto
 diff	diff --color=auto
 e	$EDITOR
 commit	git add . && git commit -m
 copy	xclip -selection clipboard <
 paste	xclip -selection clipboard -o >
+sudo	sudo 
+btreset	usb_modeswitch -R -v 8087 -p 0a2b
+pdfcat	gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER -sOutputFile=combined.pdf
+pdfsep	gs -sDEVICE=pdfwrite -dSAFER -o separated.%d.pdf
+t	st &; disown
